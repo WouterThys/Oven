@@ -16,13 +16,10 @@
 
 void main(void) {
     
-    
     D_PORT_Init();
     
     D_GLCD_Init(false);
     D_GLCD_ClearScreen(GLCD_BLACK);
-    // D_GLCD_DrawBitmap(SmallPanda,0,0,GLCD_BLACK);
-    //D_GLCD_DrawRoundRect(0,0,191,63,8,GLCD_WHITE);
     
     // Brightness
     D_PWM_Init(PWM_MODULE_1);
