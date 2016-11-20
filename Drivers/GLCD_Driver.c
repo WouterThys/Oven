@@ -14,8 +14,6 @@
  *          DEFINES
  ******************************************************************************/
 // KS0108 DEFINES
-#define GLCD_DISP_WIDTH     192
-#define GLCD_DISP_HEIGHT    64
 #define GLCD_CHIP_WIDTH     64      // Pixels per chip
     
 #define GLCD_ON             0x3F
@@ -461,6 +459,19 @@ int16_t GLCD_PutChar(char c){
     return 1; // valid char
 }
 
+void D_GLCD_WriteStringAt(const char *str, uint8_t x, uint8_t y) {
+    GLCD_GotoXY(x, y);
+    int h = GLCD_Coord.x;
+    while (*str != 0) {
+        if (*str == '\n') {
+            GLCD_GotoXY(h, GLCD_Coord.y + GLCD_FontRead(GLCD_Font + FONT_HEIGHT));
+        } else {
+            GLCD_PutChar(*str);
+        }
+        str++;
+    }
+}
+
 void D_GLCD_WriteString(const char *str) {
     int h = GLCD_Coord.x;
     while (*str != 0) {
@@ -474,6 +485,26 @@ void D_GLCD_WriteString(const char *str) {
 }
 
 void D_GLCD_PrintNumber(long n) {
+    byte buf[10]; // prints up to 10 digits
+    byte i = 0;
+    if (n == 0)
+        GLCD_PutChar('0');
+    else {
+        if (n < 0) {
+            GLCD_PutChar('-');
+            n = -n;
+        }
+        while (n > 0 && i <= 10) {
+            buf[i++] = n % 10; // n % base
+            n /= 10; // n/= base
+        }
+        for (; i > 0; i--)
+            GLCD_PutChar((char) (buf[i - 1] < 10 ? '0' + buf[i - 1] : 'A' + buf[i - 1] - 10));
+    }
+}
+
+void D_GLCD_PrintNumberAt(long n, uint8_t x, uint8_t y) {
+    GLCD_GotoXY(x, y);
     byte buf[10]; // prints up to 10 digits
     byte i = 0;
     if (n == 0)

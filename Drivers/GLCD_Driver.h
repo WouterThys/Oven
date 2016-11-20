@@ -11,6 +11,9 @@ extern "C" {
 #define GLCD_WHITE      0xFF
 #define GLCD_BLACK      0x00
     
+#define GLCD_DISP_WIDTH     192
+#define GLCD_DISP_HEIGHT    64
+    
 // FUNCTIONS
 void GLCD_GotoXY(uint8_t x, uint8_t y);    
 /**
@@ -46,6 +49,7 @@ void D_GLCD_DrawBitmap(const uint8_t *bitmap, uint8_t x, uint8_t y, uint8_t colo
  * given in x and y, be sure not to fall of the screen! The newline character \n
  * is recognized to jump to a new line. 
  */
+void D_GLCD_WriteStringAt(const char *str, uint8_t x, uint8_t y);
 void D_GLCD_WriteString(const char *str);
 /**
  * Draw a line (one pixel thickness) from 2 specified points inside the screen.
@@ -130,6 +134,7 @@ void D_GLCD_SetInverted(bool invert);
  * @param n: number
  */
 void D_GLCD_PrintNumber(long n);
+void D_GLCD_PrintNumberAt(long n, uint8_t x, uint8_t y);
 /**
  * Print the hexadecimal presentation of a positive number on the screen.
  * @param n: number
