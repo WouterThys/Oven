@@ -5,14 +5,12 @@
  * Created on October 16, 2016, 1:55 PM
  */
 
-
 #include <xc.h>
 #include <stdbool.h>
 #include "Drivers/GLCD_Driver.h"
 #include "Drivers/PORT_Driver.h"
 #include "Drivers/GLCD_Bitmaps.h"
 #include "Drivers/PWM_Driver.h"
-
 
 void main(void) {
     
