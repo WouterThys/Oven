@@ -26,20 +26,20 @@ extern "C" {
 #define GLCD_EN_Dir     TRISBbits.TRISB2
     
     // Ports for UART
-#define UART_TX         PORTCbits.RC7
-#define UART_RX         PORTCbits.RC6
+#define UART_TX         PORTCbits.RC6
+#define UART_RX         PORTCbits.RC7
     
-#define UART_TX_Dir     TRISCbits.TRISC7
-#define UART_RX_Dir     TRISCbits.TRISC6
+#define UART_TX_Dir     TRISCbits.TRISC6
+#define UART_RX_Dir     TRISCbits.TRISC7
     
     // Ports for SPI
-#define SPI_SCK         PORTBbits.RB1
-#define SPI_SDI         PORTBbits.RB0
-#define SPI_SDO         PORTCbits.RC7
-    
-#define SPI_SCK_Dir     TRISBbits.TRISB1
-#define SPI_SDI_Dir     TRISBbits.TRISB0
-#define SPI_SDO_Dir     TRISCbits.TRISC7
+//#define SPI_SCK         PORTBbits.RB1
+//#define SPI_SDI         PORTBbits.RB0
+//#define SPI_SDO         PORTCbits.RC7
+//    
+//#define SPI_SCK_Dir     TRISBbits.TRISB1
+//#define SPI_SDI_Dir     TRISBbits.TRISB0
+//#define SPI_SDO_Dir     TRISCbits.TRISC7
     
 #define PWM1_PIN        PORTCbits.RC2
 #define PWM1_PIN_Dir    TRISCbits.TRISC2

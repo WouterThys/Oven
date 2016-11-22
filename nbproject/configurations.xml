@@ -11,6 +11,10 @@
         <itemPath>Drivers/PORT_Driver.h</itemPath>
         <itemPath>Drivers/PWM_Driver.h</itemPath>
         <itemPath>Drivers/TIMER_Driver.h</itemPath>
+        <itemPath>Drivers/UART_Driver.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="Utils" displayName="Utils" projectFiles="true">
+        <itemPath>Utils/graphPlotter.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -25,6 +29,10 @@
         <itemPath>Drivers/PORT_Driver.c</itemPath>
         <itemPath>Drivers/PWM_Driver.c</itemPath>
         <itemPath>Drivers/TIMER_Driver.c</itemPath>
+        <itemPath>Drivers/UART_Driver.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="Utils" displayName="Utils" projectFiles="true">
+        <itemPath>Utils/graphPlotter.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>configuration.c</itemPath>
