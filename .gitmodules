@@ -1,0 +1,3 @@
+[submodule "OvenGui"]
+	path = OvenGui
+	url = git@github.com:WouterThys/OvenGui.git
