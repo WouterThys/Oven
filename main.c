@@ -33,24 +33,26 @@ void main(void) {
     // Basic initializes
     D_PORT_Init();
     
-    D_GLCD_Init(false);
-    D_GLCD_ClearScreen(GLCD_BLACK);
+//    D_GLCD_Init(false);
+//    D_GLCD_ClearScreen(GLCD_BLACK);
+//    
+//    // Brightness
+//    D_PWM_Init(PWM_MODULE_1);
+//    D_PWM_Enabele(PWM_MODULE_1, true);
+//    D_PWM_SetDuty(PWM_MODULE_1, (0xAD + (0xFF-0xAD)*5/8));
+//    
+//    drawAxis("t(s)", "T(C)");
+//    drawGraph(points, SizeOfArray(points), false);
     
-    // Brightness
-    D_PWM_Init(PWM_MODULE_1);
-    D_PWM_Enabele(PWM_MODULE_1, true);
-    D_PWM_SetDuty(PWM_MODULE_1, (0xAD + (0xFF-0xAD)*5/8));
-    
-    drawAxis("t(s)", "T(C)");
-    drawGraph(points, SizeOfArray(points), true);
-    
-    D_UART_Init("Panda", 19200, false);
+    D_UART_Init("Panda", 9600, true);
     D_UART_Enable(true);
-    
-    D_UART_Write("I", "Init");
    
     while(1) {
-        
+        if (readReady) {
+            D_UART_Write("C", "Got it");
+            readReady = false;
+        }
+        __delay_ms(10);
     }
     return;
 }
